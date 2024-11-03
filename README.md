@@ -51,6 +51,6 @@ aplicarán estructura semántica en HTML5.
   - Revisión y pruebas del funcionamiento de los enlaces.
 
     ## Enlace a la Página Web
-    Puedes acceder a la página web en el siguiente enlace: [Página Web Educativa sobre SQL](https://tu-enlace-aqui.com)
+    Puedes acceder a la página web en el siguiente enlace: [Página Web Educativa sobre SQL]( https://lucas-santamaria-create.github.io/-Creaci-n-Sitio-Aplicaci-n-Web-con-HTML5-Sem-ntico/)
 
 
