@@ -148,6 +148,26 @@
                     </tr>
                 </tbody>
             </table>
+            
+            <h3>Script SQL para Crear la Tabla</h3>
+            <p>Para crear la tabla <code>clientes</code> y añadir algunos registros iniciales, puedes usar el siguiente
+                script SQL:</p>
+            <pre><code>
+                -- Crear la tabla de clientes
+CREATE TABLE clientes (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(50) NOT NULL,
+    edad INT,
+    email VARCHAR(100)
+);
+
+-- Insertar algunos registros iniciales en la tabla clientes
+INSERT INTO clientes (nombre, edad, email) VALUES 
+    ('Juan', 25, 'juan@example.com'),
+    ('Maria', 30, 'maria@example.com'),
+    ('Carlos', 22, 'carlos@example.com'),
+    ('Ana', 28, 'ana@example.com');
+            </code></pre>
 
             <p>Utiliza la tabla anterior para realizar los siguientes ejercicios:</p>
             <ol>
@@ -164,7 +184,7 @@
                     <pre><code>DELETE FROM clientes WHERE nombre = 'Maria';</code></pre>
                 </li>
             </ol>
-
+            
             <!-- Tabla Después de los Cambios -->
             <h4>Tabla Después de los Cambios</h4>
             <table border="1">
