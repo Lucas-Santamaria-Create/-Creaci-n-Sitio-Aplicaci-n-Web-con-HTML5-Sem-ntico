@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nivel Básico de SQL</title>
+</head>
+
+<body>
+    <!-- Encabezado Principal-->
+    <header>
+        <h1>SQL - Nivel Básico</h1>
+        <p>En esta sección aprenderás los conceptos fundamentales de SQL, ideales para quienes comienzan a explorar este
+            lenguaje de consultas.</p>
+
+        <!-- Navegacion-->
+        <nav>
+            <a href="/index.html">Inicio</a> |
+            <a href="nivel-basico.html">Nivel Básico</a> |
+            <a href="nivel-intermedio.html">Nivel Intermedio</a> |
+            <a href="nivel-avanzado.html">Nivel Avanzado</a>
+        </nav>
+    </header>
+
+    <!-- Seccion principal -->
+    <section>
+
+        <!-- Introducción a SQL -->
+        <section id="introduccion">
+            <h2>Introducción a SQL</h2>
+            <p>SQL (Structured Query Language) es un lenguaje de programación utilizado principalmente para gestionar
+                bases de datos relacionales. Surgió en la década de 1970 como una solución para simplificar el acceso y
+                manipulación de grandes cantidades de datos. SQL es crucial en sectores como:</p>
+            <ul>
+                <li><strong>Analítica de Datos</strong>: Usado para analizar grandes volúmenes de datos de manera
+                    eficiente.</li>
+                <li><strong>Desarrollo Web</strong>: Permite que aplicaciones web almacenen y recuperen datos de
+                    usuarios.</li>
+                <li><strong>Aplicaciones Empresariales</strong>: Facilita la gestión de información de clientes,
+                    productos y ventas.</li>
+            </ul>
+        </section>
+
+        <!-- Elementos Fundamentales -->
+        <section id="elementos-fundamentales">
+            <h2>Elementos Fundamentales</h2>
+            <p>En SQL, trabajamos principalmente con los siguientes elementos:</p>
+            <ul>
+                <li><strong>Tablas</strong>: Estructuras que organizan datos en filas y columnas. Cada tabla en una base
+                    de datos representa una entidad específica, como <code>Clientes</code> o <code>Productos</code>.
+                </li>
+                <li><strong>Columnas</strong>: Representan los atributos de la entidad. En una tabla de
+                    <code>Clientes</code>, podrías tener columnas como <code>Nombre</code>, <code>Edad</code>, y
+                    <code>Email</code>.
+                </li>
+                <li><strong>Filas</strong>: Son los registros individuales de una tabla. Cada fila contiene datos
+                    específicos para un cliente o producto.</li>
+                <li><strong>Tipos de Datos</strong>: Define qué tipo de información se puede almacenar en una columna.
+                    Algunos tipos comunes son:</li>
+                <ul>
+                    <li><code>INT</code>: Números enteros.</li>
+                    <li><code>VARCHAR</code>: Cadenas de texto de longitud variable.</li>
+                    <li><code>DATE</code>: Fechas en formato AAAA-MM-DD.</li>
+                </ul>
+            </ul>
+            <img src="/img/Conceptos basico sql.jpg" width="600">
+        </section>
+
+        <!-- Consultas Básicas -->
+        <section id="consultas-basicas">
+            <h2>Consultas Básicas</h2>
+            <p>Las consultas en SQL nos permiten recuperar y organizar datos de acuerdo a criterios específicos. Estas
+                son algunas de las instrucciones fundamentales:</p>
+            <ul>
+                <li><code>SELECT</code>: Selecciona columnas específicas de una tabla para mostrar los datos.</li>
+                <li><code>FROM</code>: Indica de qué tabla se extraerán los datos.</li>
+                <li><code>WHERE</code>: Filtra los resultados según una condición. Solo se muestran las filas que
+                    cumplan con el criterio.</li>
+                <li><code>ORDER BY</code>: Organiza los resultados en un orden específico, ya sea ascendente
+                    (<code>ASC</code>) o descendente (<code>DESC</code>).</li>
+            </ul>
+            <p>Ejemplo de una consulta básica:</p>
+            <pre><code>SELECT nombre, edad FROM clientes WHERE edad > 18 ORDER BY nombre ASC;</code></pre>
+            <p>Esta consulta selecciona los campos <code>nombre</code> y <code>edad</code> de la tabla
+                <code>clientes</code> donde la edad es mayor a 18, y los ordena alfabéticamente por nombre.
+            </p>
+        </section>
+
+        <!-- Operaciones CRUD -->
+        <section id="operaciones-crud">
+            <h2>Operaciones CRUD Básicas</h2>
+            <p>CRUD es un acrónimo de Crear, Leer, Actualizar y Eliminar, las cuatro operaciones fundamentales para
+                manipular datos en SQL:</p>
+            <ul>
+                <li><code>INSERT</code>: Agrega nuevos datos en una tabla. Ejemplo:</li>
+                <pre><code>INSERT INTO clientes (nombre, edad) VALUES ('Juan', 25);</code></pre>
+                <p>Este comando añade un nuevo cliente llamado "Juan" de 25 años a la tabla <code>clientes</code>.</p>
+
+                <li><code>SELECT</code>: Ya lo vimos antes, permite leer datos de una tabla.</li>
+
+                <li><code>UPDATE</code>: Modifica datos existentes en la tabla. Ejemplo:</li>
+                <pre><code>UPDATE clientes SET edad = 26 WHERE nombre = 'Juan';</code></pre>
+                <p>Este comando actualiza la edad de Juan a 26 en la tabla <code>clientes</code>.</p>
+
+                <li><code>DELETE</code>: Elimina datos de una tabla. Ejemplo:</li>
+                <pre><code>DELETE FROM clientes WHERE nombre = 'Juan';</code></pre>
+                <p>Este comando borra a Juan de la tabla <code>clientes</code>.</p>
+            </ul>
+        </section>
+
+        <section id="ejercicios-practicos">
+            <h2>Ejercicios Prácticos Simples</h2>
+            <p>A continuación, algunos ejercicios básicos para practicar los conceptos anteriores:</p>
+
+            <h3>Tabla de Clientes</h3>
+
+            <!-- Tabla Inicial -->
+            <h4>Tabla Inicial</h4>
+            <table border="1">
+                <caption>Registros de Clientes</caption>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Juan</td>
+                        <td>25</td>
+                        <td>juan@example.com</td>
+                    </tr>
+                    <tr>
+                        <td>Maria</td>
+                        <td>30</td>
+                        <td>maria@example.com</td>
+                    </tr>
+                    <tr>
+                        <td>Carlos</td>
+                        <td>22</td>
+                        <td>carlos@example.com</td>
+                    </tr>
+                    <tr>
+                        <td>Ana</td>
+                        <td>28</td>
+                        <td>ana@example.com</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Script SQL para Crear la Tabla</h3>
+            <p>Para crear la tabla <code>clientes</code> y añadir algunos registros iniciales, puedes usar el siguiente
+                script SQL:</p>
+            <pre>
+                -- Crear la tabla de clientes
+CREATE TABLE clientes (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(50) NOT NULL,
+    edad INT,
+    email VARCHAR(100)
+);
+
+-- Insertar algunos registros iniciales en la tabla clientes
+INSERT INTO clientes (nombre, edad, email) VALUES 
+    ('Juan', 25, 'juan@example.com'),
+    ('Maria', 30, 'maria@example.com'),
+    ('Carlos', 22, 'carlos@example.com'),
+    ('Ana', 28, 'ana@example.com');
+            </pre>
+
+            <p>Utiliza la tabla anterior para realizar los siguientes ejercicios:</p>
+            <ol>
+                <li>Selecciona todos los registros de la tabla <code>clientes</code>.
+                    <pre><code>SELECT * FROM clientes;</code></pre>
+                </li>
+                <li>Inserta un nuevo cliente llamado "Luis" con 35 años de edad.
+                    <pre><code>INSERT INTO clientes (nombre, edad, email) VALUES ('Luis', 35, 'luis@example.com');</code></pre>
+                </li>
+                <li>Actualiza la edad del cliente llamado "Juan" a 28 años.
+                    <pre><code>UPDATE clientes SET edad = 28 WHERE nombre = 'Juan';</code></pre>
+                </li>
+                <li>Elimina el registro del cliente llamado "Maria".
+                    <pre><code>DELETE FROM clientes WHERE nombre = 'Maria';</code></pre>
+                </li>
+            </ol>
+            
+            <!-- Tabla Después de los Cambios -->
+            <h4>Tabla Después de los Cambios</h4>
+            <table border="1">
+                <caption>Registros de Clientes Actualizados</caption>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Juan</td>
+                        <td>28</td>
+                        <td>juan@example.com</td>
+                    </tr>
+                    <tr>
+                        <td>Carlos</td>
+                        <td>22</td>
+                        <td>carlos@example.com</td>
+                    </tr>
+                    <tr>
+                        <td>Ana</td>
+                        <td>28</td>
+                        <td>ana@example.com</td>
+                    </tr>
+                    <tr>
+                        <td>Luis</td>
+                        <td>35</td>
+                        <td>luis@example.com</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Después de aplicar los comandos SQL, la tabla se actualiza para reflejar los cambios realizados:</p>
+            <ul>
+                <li>Se agregó un nuevo cliente llamado "Luis".</li>
+                <li>La edad de "Juan" se actualizó a 28 años.</li>
+                <li>El registro de "Maria" fue eliminado.</li>
+            </ul>
+        </section>
+
+    </section>
+
+
+    </section>
+
+</body>
+
+</html>
