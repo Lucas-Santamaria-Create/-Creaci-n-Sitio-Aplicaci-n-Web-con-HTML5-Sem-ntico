@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de SQL - Nivel Avanzado</title>
+</head>
+
+<body>
+    <!-- Encabezado Principal-->
+    <header>
+        <h1>Nivel Avanzado</h1>
+        <p>¡Felicidades! Has llegado al nivel avanzado de SQL. Ahora que ya dominas los conceptos intermedios, es hora de explorar técnicas complejas y herramientas poderosas que te ayudarán a trabajar con bases de datos de manera más eficiente y profesional.</p>
+        <p>Autores: Lucas Santamaria, Brayan Aponte, Angel Fernández</p>
+    </header>
+
+    <!-- Navegación-->
+    <nav>
+        <a href="Home.html">Inicio</a> |
+        <a href="nivel-basico.html">Nivel Básico</a> |
+        <a href="nivel-intermedio.html">Nivel Intermedio</a> |
+        <a href="nivel-avanzado.html">Nivel Avanzado</a>
+    </nav>
+
+    <!-- Sección principal -->
+    <section>
+        <article>
+            <h2>Nivel Avanzado</h2>
+            <p>
+                Has llegado a un nivel avanzado, lo que significa que dominarás aspectos más complejos de SQL. Aquí aprenderás a realizar consultas optimizadas, manejar grandes volúmenes de datos, trabajar con funciones avanzadas, y gestionar transacciones para garantizar la integridad de la base de datos. Vamos a profundizar en las siguientes áreas:
+            </p>
+            <ul>
+                <li><strong>Cursores:</strong> Aprende a utilizar cursores para procesar filas de manera individual en un ciclo.</li>
+                <li><strong>Procedimientos almacenados y triggers:</strong> Aprende a crear y usar procedimientos almacenados y triggers para automatizar procesos y validar datos.</li>
+                <li><strong>Transacciones y control de errores:</strong> Maneja la integridad de la base de datos mediante transacciones y control de errores con técnicas avanzadas.</li>
+                <li><strong>Optimización de consultas:</strong> Descubre cómo optimizar tus consultas SQL para mejorar el rendimiento en bases de datos grandes.</li>
+                <li><strong>Ejercicios avanzados y proyectos de práctica:</strong> Pon a prueba lo aprendido mediante ejercicios prácticos y proyectos de base de datos reales.</li>
+            </ul>
+        </article>
+
+        <article>
+            <h2>Cursores</h2>
+            <p>
+                Los cursores en SQL permiten procesar filas de una consulta una por una. Esto es útil cuando necesitamos realizar operaciones complejas que no pueden ser fácilmente realizadas con una única consulta.
+            </p>
+            <h3>Ejemplo de Cursor</h3>
+            <p>Este ejemplo muestra cómo declarar y utilizar un cursor para recorrer los registros de una tabla de productos:</p>
+            <pre>
+DECLARE @ProductName VARCHAR(50)
+DECLARE product_cursor CURSOR FOR
+SELECT Name FROM Products
+OPEN product_cursor
+FETCH NEXT FROM product_cursor INTO @ProductName
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    PRINT @ProductName
+    FETCH NEXT FROM product_cursor INTO @ProductName
+END
+CLOSE product_cursor
+DEALLOCATE product_cursor
+            </pre>
+        </article>
+
+        <article>
+            <h2>Procedimientos Almacenados y Triggers</h2>
+            <p>
+                Los procedimientos almacenados y los triggers son herramientas clave en SQL para encapsular lógica de negocio y automatizar tareas.
+            </p>
+
+            <h3>Procedimiento Almacenado</h3>
+            <p>Un procedimiento almacenado es un conjunto de instrucciones SQL que se ejecutan en el servidor. A continuación, te mostramos cómo crear un procedimiento almacenado para actualizar el precio de un producto:</p>
+            <pre>
+CREATE PROCEDURE ActualizarPrecioProducto
+    @ProductoID INT,
+    @NuevoPrecio DECIMAL
+AS
+BEGIN
+    UPDATE Productos
+    SET Precio = @NuevoPrecio
+    WHERE ProductoID = @ProductoID;
+END;
+            </pre>
+
+            <h3>Trigger (Desencadenador)</h3>
+            <p>Un trigger se ejecuta automáticamente cuando ocurre un evento en la base de datos. Aquí te mostramos un ejemplo de un trigger que audita las actualizaciones en una tabla de productos:</p>
+            <pre>
+CREATE TRIGGER AuditoriaActualizacion
+ON Productos
+AFTER UPDATE
+AS
+BEGIN
+    INSERT INTO Auditoria (ProductoID, FechaCambio, TipoCambio)
+    SELECT ProductoID, GETDATE(), 'Actualización'
+    FROM INSERTED;
+END;
+            </pre>
+        </article>
+
+        <article>
+            <h2>Transacciones y Control de Errores</h2>
+            <p>
+                Las transacciones en SQL permiten ejecutar varias instrucciones como una única unidad de trabajo, lo que garantiza la consistencia de los datos. El control de errores se utiliza para gestionar fallos durante la ejecución de las transacciones.
+            </p>
+
+            <h3>Transacción Básica</h3>
+            <p>A continuación, te mostramos cómo utilizar transacciones para realizar varias operaciones de forma atómica:</p>
+            <pre>
+BEGIN TRANSACTION
+BEGIN TRY
+    UPDATE Productos
+    SET Precio = Precio * 1.10
+    WHERE CategoriaID = 1
+    DELETE FROM Inventario
+    WHERE ProductoID = 3
+    COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+    ROLLBACK TRANSACTION
+    PRINT 'Error en la transacción'
+END CATCH
+            </pre>
+            <p>En este ejemplo, si alguna de las operaciones falla, la transacción se revierte automáticamente.</p>
+        </article>
+
+        <article>
+            <h2>Optimización de Consultas</h2>
+            <p>
+                La optimización de consultas es fundamental en bases de datos grandes. Algunas estrategias incluyen el uso adecuado de índices, el análisis de planes de ejecución y la reescritura de consultas complejas para mejorar el rendimiento.
+            </p>
+
+            <h3>Uso de Índices</h3>
+            <p>Los índices son estructuras que mejoran el rendimiento de las consultas de búsqueda. A continuación, se muestra cómo crear un índice en una tabla de productos:</p>
+            <pre>
+CREATE INDEX idx_nombre_producto ON Productos (Nombre);
+            </pre>
+
+            <h3>Análisis de Planes de Ejecución</h3>
+            <p>Los planes de ejecución permiten ver cómo SQL Server ejecuta una consulta. Esto te permite identificar posibles cuellos de botella y optimizar las consultas.</p>
+        </article>
+
+        <article>
+            <h2>Ejercicios Avanzados y Proyectos de Práctica</h2>
+            <p>
+                La mejor manera de aprender SQL a nivel avanzado es poniendo en práctica lo aprendido a través de ejercicios desafiantes y proyectos de base de datos reales.
+            </p>
+            <ul>
+                <li><strong>Ejercicio 1:</strong> Crea un procedimiento almacenado que actualice los precios de todos los productos de una categoría específica.</li>
+                <li><strong>Ejercicio 2:</strong> Implementa un trigger que registre cambios en el inventario de productos cada vez que se realice una venta.</li>
+                <li><strong>Proyecto 1:</strong> Desarrolla un sistema de gestión de pedidos que utilice cursores para procesar cada pedido y actualizar las existencias de productos.</li>
+                <li><strong>Proyecto 2:</strong> Optimiza una consulta compleja que implique varias tablas de ventas, clientes y productos, y mejora su rendimiento utilizando índices y un análisis de planes de ejecución.</li>
+            </ul>
+            <p>Estos ejercicios y proyectos te ayudarán a consolidar tus habilidades avanzadas en SQL.</p>
+        </article>
+
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 Guía de SQL - Proyecto realizado por Lucas Santamaria, Brayan Aponte, y Angel Fernández</p>
+    </footer>
+</body>
+
+</html>
