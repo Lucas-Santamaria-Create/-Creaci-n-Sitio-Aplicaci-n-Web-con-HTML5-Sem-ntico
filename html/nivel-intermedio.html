@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>>Guía de SQL - Página Principal</title>
+</head>
+
+<body>
+    <!-- Encabezado Principal-->
+    <Header>
+        <h1>Nivel intermedio</h1>
+        <p>Haz avanzado por tu progreso y ya tienes las bases del lenguaje SQL, Xavier esta orgulloso de ti, sientete orgulloso ahora aplicaremos todo lo aprendido, mientras te introducimos a nuevas herramientas</p>
+        <p>Autores: Lucas Santamaria, Brayan Aponte, Angel Fernández</p>
+    </Header>
+    <!-- Navegacion-->
+    <nav>
+        <a href="Home.html">Inicio</a> |
+        <a href="nivel-basico.html">Nivel Básico</a> |
+        <a href="nivel-intermedio.html">Nivel Intermedio</a> |
+        <a href="nivel-avanzado.html">Nivel Avanzado</a>
+    </nav>
+
+    <!-- Seccion principal -->
+    <section>
+        <article>
+            <h2>Nivel Intermedio</h2>
+            <p>
+                Siguiendo con los conceptos de SQL, esta vez avanzaremos a familiarizarnos mas con algunos ejemplos practicos
+                y tambien iremos aprendiendo sobre nuevas herramientas que te brindaran para futuro desarrollador SQL.
+                <ul>
+                    <li>
+                        <strong>Uniones de Tablas:</strong> Aprenderás a combinar datos de múltiples tablas utilizando
+                        <code>JOIN</code>, incluyendo <code>INNER JOIN</code>, <code>LEFT JOIN</code> y
+                        <code>RIGHT JOIN</code>.
+                    </li>
+                    <li>
+                        <strong>Subconsultas:</strong> Uso de subconsultas para realizar consultas dentro de otras
+                        consultas, mejorando la complejidad de las mismas.
+                    </li>
+                    <li>
+                        <strong>Funciones de Agregación Avanzadas:</strong> Aprender a usar <code>GROUP BY</code> y
+                        <code>HAVING</code> para agrupar resultados y filtrar grupos de datos.
+                    </li>
+                    <li>
+                        <strong>Manipulación de Datos:</strong> Más sobre <code>UPDATE</code> y <code>DELETE</code> con
+                        condiciones y técnicas de manipulación de datos complejas.
+                    </li>
+                    <li>
+                        <strong>Transacciones:</strong> Introducción al concepto de transacciones y cómo utilizarlas para
+                        asegurar la integridad de los datos mediante <code>COMMIT</code> y <code>ROLLBACK</code>.
+                    </li>
+                </ul>
+            </p>
+
+        </article>
+        <article>
+            <h2>Unión de Tablas</h2>
+            <p>
+                Esta guía de SQL ha sido diseñada para ayudar a estudiantes y profesionales a comprender los conceptos clave del lenguaje SQL, aprender a manipular bases de datos y mejorar sus habilidades a través de ejemplos y prácticas.
+            </p>
+        </article>
+        
+        <article>
+            <h2>INNER JOIN</h2>
+            <p>
+                El <code>INNER JOIN</code> devuelve solo las filas que tienen coincidencias en ambas tablas. Es útil cuando solo necesitas los registros que están presentes en las dos tablas.
+            </p>
+        
+            <h3>Tabla Clientes</h3>
+            <p>En esta tabla, tenemos la información básica de los clientes, incluyendo un ID único de cliente y su nombre.</p>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ClienteID</th>
+                        <th>Nombre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Juan</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Ana</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Carlos</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>María</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Tabla Pedidos</h3>
+            <p>En esta tabla, tenemos los pedidos realizados, cada uno con un ID de pedido, el ID del cliente que lo realizó, y el nombre del producto comprado.</p>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>PedidoID</th>
+                        <th>ClienteID</th>
+                        <th>Producto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>101</td>
+                        <td>1</td>
+                        <td>Televisor</td>
+                    </tr>
+                    <tr>
+                        <td>102</td>
+                        <td>2</td>
+                        <td>Laptop</td>
+                    </tr>
+                    <tr>
+                        <td>103</td>
+                        <td>1</td>
+                        <td>Lavadora</td>
+                    </tr>
+                    <tr>
+                        <td>104</td>
+                        <td>3</td>
+                        <td>Smartphone</td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            <h3>Resultado de INNER JOIN</h3>
+            <p>Al realizar un <code>INNER JOIN</code> entre las tablas Clientes y Pedidos utilizando el campo <code>ClienteID</code>, obtenemos solo los registros donde existe una coincidencia en ambas tablas. Esto nos permite ver qué productos compró cada cliente que tiene un pedido registrado.</p>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Producto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Juan</td>
+                        <td>Televisor</td>
+                    </tr>
+                    <tr>
+                        <td>Ana</td>
+                        <td>Laptop</td>
+                    </tr>
+                    <tr>
+                        <td>Juan</td>
+                        <td>Lavadora</td>
+                    </tr>
+                    <tr>
+                        <td>Carlos</td>
+                        <td>Smartphone</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+
+        <article>
+            <h2> Subconsultas</h2>
+            <p>
+                En SQL, una subconsulta es una consulta anidada dentro de otra consulta. Es una herramienta poderosa que
+                permite utilizar el resultado de una consulta como entrada para otra. Las subconsultas se colocan normalmente 
+                entre paréntesis y pueden usarse en varias partes de una consulta principal, como en la cláusula SELECT, FROM, WHERE, HAVING, o JOIN
+            </p>
+
+            <h3>Select</h3>
+            <p>"SELEC"T permiten calcular un valor que se utiliza en cada fila del resultado.
+                Este valor puede venir de otra tabla o de un cálculo que no forma parte de las columnas principales de la consulta.
+            </p>
+
+            <h3>From</h3>
+            <p>
+                FROM se conocen como subconsultas de tabla o consultas derivadas. Estas subconsultas actúan como una "tabla temporal" 
+                que puedes usar en la consulta principal. Esto permite realizar operaciones complejas de filtrado, agrupamiento o 
+                cálculo que serían difíciles de hacer directamente en la consulta principal
+            </p>
+
+            <h3>Where</h3>
+            <p>
+                Las subconsultas en WHERE se utilizan para filtrar resultados en función de condiciones que se derivan de otra consulta. 
+                Esto permite realizar comparaciones más complejas o validar la existencia de registros relacionados en otras tablas.
+            </p>
+
+            <h3>Having</h3>
+            <p>
+                La cláusula HAVING se utiliza en SQL para filtrar los resultados de una consulta que involucra funciones de agregación 
+                (como SUM, AVG, COUNT, etc.). Al igual que en WHERE, puedes usar subconsultas en HAVING para aplicar condiciones basadas 
+                en resultados de otras consultas.
+            </p>
+
+            <h3>JOIN</h3>
+            <P>
+                Las subconsultas en JOIN se utilizan para unir resultados de una tabla con los resultados de otra consulta, que puede 
+                ser una subconsulta. Esto permite crear consultas complejas al combinar datos de diferentes tablas o conjuntos de resultados.
+            </P>
+
+        </article>
+
+        <article>
+            <h2>Funciones de Agregación Avanzadas</h2>
+            <p>
+                Las funciones de agregación avanzadas en SQL se utilizan para realizar cálculos sobre un conjunto de datos y devolver un único valor. 
+                Estas funciones son especialmente útiles para resumir y analizar grandes volúmenes de información. 
+            </p>
+            <ul>
+                <li> Funciones Basicas: </li>
+                <p>COUNT(): Esta función cuenta el número de filas que cumplen con una condición específica. Puede contar todas las filas o solo aquellas que tienen un valor no nulo en una columna especificada.</p>
+                <p>SUM(): Suma los valores de una columna específica para todas las filas que cumplen con una condición.</p>
+                <p>AVG(): Calcula el promedio de los valores en una columna específica. Solo considera los valores no nulos.</p>
+                <p>MAX(): Devuelve el valor máximo de una columna específica.</p>
+                <p>MIN(): Devuelve el valor mínimo de una columna específica.</p>
+                <li> Funciones Avanzadas: </li>
+                <p>GROUP BY: Utiliza junto con las funciones de agregación para agrupar resultados en función de una o más columnas. Cada grupo devuelve un valor de la función de agregación.</p>
+                <p>HAVING: Similar a WHERE, pero se usa para filtrar los resultados de un grupo después de aplicar las funciones de agregación.</p>
+                <p>ROLLUP: Extensión de GROUP BY que genera subtotales en varias jerarquías de agrupación.</p>
+                <p>CUBE: Similar a ROLLUP, pero genera subtotales para todas las combinaciones de las columnas especificadas.</p>
+            </ul>
+        </article>
+        
+        <article>
+            <h2>
+                Manipulacion de datos
+            </h2>
+            <p>
+                La manipulación de datos en SQL se refiere a la modificación y gestión de los datos dentro de una base de datos. 
+                Esto incluye las operaciones básicas de inserción, actualización, eliminación y consulta de datos. 
+            </p>
+            <h3> Insert </h3>
+            <p>Se utiliza para agregar nuevos registros a una tabla.</p>
+            <h3> Delete </h3>
+            <p>Se utiliza para eliminar Datos </p>
+            <h3> Update </h3>
+            <p> Se utiliza para actualizar datos de la tabala </p>
+        </article>
+
+        <article>
+            <h2>Transacciones</h2>
+            <p>
+                Las transacciones SQL son un conjunto de operaciones que se ejecutan como una única unidad de trabajo. Esto significa 
+                que todas las operaciones dentro de una transacción deben completarse exitosamente para que se realicen los cambios en 
+                la base de datos. Si alguna de las operaciones falla, se pueden revertir todas las operaciones realizadas hasta ese momento, 
+                asegurando la integridad de los datos.
+            </p>
+            <h3>Propiedades de la transacciones</h3>
+            <ul>
+                <li>Atomicidad</li>
+                <li>Consistencia</li>
+                <li>Aislamiento</li>
+                <li>Durabilidad</li>
+            </ul>
+            <h3>Comando basicosde transacciones</h3>
+            <ul>
+                <li>Begin Transaction</li>
+                <p>
+                    Utilizar BEGIN TRANSACTION es esencial antes de realizar múltiples operaciones que deben considerarse como una unidad. 
+                    Esto asegura que si ocurre un error en alguna de las operaciones, puedas revertir todas las operaciones realizadas desde que se inició la transacción.
+                </p>
+                <li>Commit</li>
+                <p>
+                    Este comando finaliza la transacción y aplica todos los cambios realizados durante la transacción en la base de datos. Una vez que se ejecuta un COMMIT, 
+                    los cambios son permanentes y no se pueden deshacer.
+                </p>
+                <li>RollBack</li>
+                <p>
+                    Este comando deshace todos los cambios realizados en la transacción desde el BEGIN TRANSACTION. Se utiliza cuando hay un error en alguna de las operaciones 
+                    y deseas revertir todos los cambios realizados hasta ese punto.
+                </p>
+            </ul>
+
+        </article>
+        
+
+    </section>
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 Guía de SQL - Proyecto realizado por Lucas Santamaria, Brayan Aponte, y Angel Fernández</p>
+    </footer>
+</body>
+
+</html>
