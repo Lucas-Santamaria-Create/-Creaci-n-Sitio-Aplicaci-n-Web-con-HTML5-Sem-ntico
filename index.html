@@ -7,7 +7,8 @@
     <title>Guía de SQL - Página Principal</title>
     <!-- Enlace a Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <!-- Estilo global -->
+    <link rel="stylesheet" href="/css/global.css">
 </head>
 
 <body class="bg-light">
@@ -21,12 +22,11 @@
             </div>
             <p class="lead text-center">Bienvenidos a la guía básica sobre SQL, donde exploraremos <br> los conceptos
                 fundamentales y avanzados de este lenguaje de bases de datos.</p>
-            <p class="text-center">Autores: Lucas Santamaria, Brayan Aponte, Angel Fernández</p>
         </div>
     </header>
 
     <!-- Navegación -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="mainNavbar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" id="mainNavbar">
         <div class="container">
             <a class="navbar-brand" href="#">Guía SQL</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -34,11 +34,22 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="/html/nivel-basico.html">Nivel Básico</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/html/nivel-intermedio.html">Nivel Intermedio</a> </li>
-                    <li class="nav-item"><a class="nav-link" href="/html/nivel-avanzado.html">Nivel Avanzado</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/html/login.html">Iniciar Sesión</a></li>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/html/nivel-basico.html">Nivel Básico</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/html/nivel-intermedio.html">Nivel Intermedio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/html/nivel-avanzado.html">Nivel Avanzado</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/html/login.html">Iniciar Sesión</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -75,6 +86,25 @@
             </article>
         </section>
     </div>
+    <article>
+        <h2 class="text-primary mb-4">Objetivos del Aprendizaje</h2>
+        <ul class="list-group mb-4">
+            <li class="list-group-item">Comprender la estructura y el funcionamiento de las bases de datos.</li>
+            <li class="list-group-item">Aprender a utilizar sentencias básicas de SQL: SELECT, INSERT, UPDATE y DELETE.
+            </li>
+            <li class="list-group-item">Desarrollar habilidades en la creación y gestión de tablas y relaciones entre
+                ellas.</li>
+            <li class="list-group-item">Implementar consultas complejas con condiciones, uniones y agrupaciones.</li>
+        </ul>
+    </article>
+
+    <!-- Video -->
+    <article>
+        <h2 class="text-primary mb-4">Si no sabes cómo funcionan las bases de datos relacionales, mira este video</h2>
+        <video controls width="100%" class="mb-4">
+            <source src="/video/Qué son las bases de datos relacionales _v720P.mp4" type="video/mp4">
+        </video>
+    </article>
 
     <!-- Pie de página -->
     <footer class="bg-dark text-white text-center py-3">
@@ -84,7 +114,7 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- JavaScript del nav -->
-    <script src="/js/navbar.js"></script>
+   <!--<script src="/js/navbar.js"></script>-->
 
 </body>
 
