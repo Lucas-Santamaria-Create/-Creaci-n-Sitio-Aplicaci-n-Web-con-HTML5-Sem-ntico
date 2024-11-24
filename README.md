@@ -10,7 +10,7 @@ aplicarán estructura semántica en HTML5.
 
 ## Autores
 - **Lucas Santamaría**
-- **Brayan Aponte**
+- **Bryan Aponte**
 - **Ángel Fernández**
 
 ## Características del Proyecto
