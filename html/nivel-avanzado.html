@@ -5,22 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guía de SQL - Nivel Avanzado</title>
+    <link rel="stylesheet" href="styleA.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body id="nivel-avanzado">
     <!-- Encabezado Principal-->
     <header>
         <h1>Nivel Avanzado</h1>
         <p>¡Felicidades! Has llegado al nivel avanzado de SQL. Ahora que ya dominas los conceptos intermedios, es hora de explorar técnicas complejas y herramientas poderosas que te ayudarán a trabajar con bases de datos de manera más eficiente y profesional.</p>
-        <p>Autores: Lucas Santamaria, Brayan Aponte, Angel Fernández</p>
+        <p>Autores: Lucas Santamaria, Bryan Aponte, Angel Fernández</p>
     </header>
 
-    <!-- Navegación-->
-    <nav>
-        <a href="Home.html">Inicio</a> |
-        <a href="nivel-basico.html">Nivel Básico</a> |
-        <a href="nivel-intermedio.html">Nivel Intermedio</a> |
-        <a href="nivel-avanzado.html">Nivel Avanzado</a>
+     <!-- Navegación -->
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">Guía SQL</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="/index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/html/nivel-basico.html">Nivel Básico</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/html/nivel-intermedio.html">Nivel Intermedio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/html/nivel-avanzado.html">Nivel Avanzado</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/html/login.html">Iniciar Sesión</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
     <!-- Sección principal -->
@@ -47,80 +60,149 @@
             <h3>Ejemplo de Cursor</h3>
             <p>Este ejemplo muestra cómo declarar y utilizar un cursor para recorrer los registros de una tabla de productos:</p>
             <pre>
-DECLARE @ProductName VARCHAR(50)
-DECLARE product_cursor CURSOR FOR
-SELECT Name FROM Products
-OPEN product_cursor
-FETCH NEXT FROM product_cursor INTO @ProductName
-WHILE @@FETCH_STATUS = 0
-BEGIN
-    PRINT @ProductName
-    FETCH NEXT FROM product_cursor INTO @ProductName
-END
-CLOSE product_cursor
-DEALLOCATE product_cursor
+        DECLARE @ProductName VARCHAR(50)
+        DECLARE product_cursor CURSOR FOR
+        SELECT Name FROM Products
+        OPEN product_cursor
+        FETCH NEXT FROM product_cursor INTO @ProductName
+        WHILE @@FETCH_STATUS = 0
+        BEGIN
+            PRINT @ProductName
+            FETCH NEXT FROM product_cursor INTO @ProductName
+        END
+        CLOSE product_cursor
+        DEALLOCATE product_cursor
             </pre>
+            <!-- Video añadido -->
+            <h3>Video Explicativo</h3>
+            <div class="video-container">
+            <iframe 
+                width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/nPtgrJrQHDg?si=9ftWdqcZ8vz9IGox" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
+            </div>
+            <p class="video-description">
+                Este video explica de manera práctica cómo implementar Cursores en SQL.
+            </p>
         </article>
+        
 
         <article>
             <h2>Procedimientos Almacenados y Triggers</h2>
             <p>
                 Los procedimientos almacenados y los triggers son herramientas clave en SQL para encapsular lógica de negocio y automatizar tareas.
             </p>
-
+        
             <h3>Procedimiento Almacenado</h3>
             <p>Un procedimiento almacenado es un conjunto de instrucciones SQL que se ejecutan en el servidor. A continuación, te mostramos cómo crear un procedimiento almacenado para actualizar el precio de un producto:</p>
             <pre>
-CREATE PROCEDURE ActualizarPrecioProducto
-    @ProductoID INT,
-    @NuevoPrecio DECIMAL
-AS
-BEGIN
-    UPDATE Productos
-    SET Precio = @NuevoPrecio
-    WHERE ProductoID = @ProductoID;
-END;
+        CREATE PROCEDURE ActualizarPrecioProducto
+            @ProductoID INT,
+            @NuevoPrecio DECIMAL
+        AS
+        BEGIN
+            UPDATE Productos
+            SET Precio = @NuevoPrecio
+            WHERE ProductoID = @ProductoID;
+        END;
             </pre>
-
+            <!-- Video centrado y descripción añadida -->
+            <h3>Video Explicativo</h3>
+            <div class="video-container">
+                <iframe 
+                    width="560" 
+                    height="315"
+                    src="https://www.youtube.com/embed/tpjmONtsXKI?si=hIB12FIo-G2wcA90" 
+                    title="YouTube video player" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                </iframe>
+                <p class="video-description">
+                    Este video proporciona una guía práctica para implementar procedimientos almacenados en SQL.
+                </p>
+            </div>
+        
             <h3>Trigger (Desencadenador)</h3>
             <p>Un trigger se ejecuta automáticamente cuando ocurre un evento en la base de datos. Aquí te mostramos un ejemplo de un trigger que audita las actualizaciones en una tabla de productos:</p>
             <pre>
-CREATE TRIGGER AuditoriaActualizacion
-ON Productos
-AFTER UPDATE
-AS
-BEGIN
-    INSERT INTO Auditoria (ProductoID, FechaCambio, TipoCambio)
-    SELECT ProductoID, GETDATE(), 'Actualización'
-    FROM INSERTED;
-END;
+        CREATE TRIGGER AuditoriaActualizacion
+        ON Productos
+        AFTER UPDATE
+        AS
+        BEGIN
+            INSERT INTO Auditoria (ProductoID, FechaCambio, TipoCambio)
+            SELECT ProductoID, GETDATE(), 'Actualización'
+            FROM INSERTED;
+        END;
             </pre>
+            <!-- Video añadido -->
+            <h3>Video Explicativo</h3>
+            <div class="video-container">
+                <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/uTx7xd4ojkk?si=rkFah7RUUCF2QuAo" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                </iframe>
+                <p class="video-description">
+                    Este video explica de manera práctica cómo implementar Triggers en SQL.
+                </p>
+            </div>
         </article>
+        
 
         <article>
             <h2>Transacciones y Control de Errores</h2>
             <p>
                 Las transacciones en SQL permiten ejecutar varias instrucciones como una única unidad de trabajo, lo que garantiza la consistencia de los datos. El control de errores se utiliza para gestionar fallos durante la ejecución de las transacciones.
             </p>
-
+        
             <h3>Transacción Básica</h3>
             <p>A continuación, te mostramos cómo utilizar transacciones para realizar varias operaciones de forma atómica:</p>
             <pre>
-BEGIN TRANSACTION
-BEGIN TRY
-    UPDATE Productos
-    SET Precio = Precio * 1.10
-    WHERE CategoriaID = 1
-    DELETE FROM Inventario
-    WHERE ProductoID = 3
-    COMMIT TRANSACTION
-END TRY
-BEGIN CATCH
-    ROLLBACK TRANSACTION
-    PRINT 'Error en la transacción'
-END CATCH
+        BEGIN TRANSACTION
+        BEGIN TRY
+            UPDATE Productos
+            SET Precio = Precio * 1.10
+            WHERE CategoriaID = 1
+            DELETE FROM Inventario
+            WHERE ProductoID = 3
+            COMMIT TRANSACTION
+        END TRY
+        BEGIN CATCH
+            ROLLBACK TRANSACTION
+            PRINT 'Error en la transacción'
+        END CATCH
             </pre>
             <p>En este ejemplo, si alguna de las operaciones falla, la transacción se revierte automáticamente.</p>
+            
+            <!-- Video centrado y descripción añadida -->
+            <h3>Video Explicativo Transacciones</h3>
+            <div class="video-container">
+                <iframe 
+                    width="560" 
+                    height="315"
+                    src="https://www.youtube.com/embed/XMca47lDWus?si=PD081vIjkxXSRV9h" 
+                    title="YouTube video player" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                </iframe>
+                <p class="video-description">
+                    Este video explica de manera práctica cómo implementar transacciones básicas y controlar errores en SQL.
+                </p>
+            </div>
         </article>
 
         <article>
@@ -128,37 +210,42 @@ END CATCH
             <p>
                 La optimización de consultas es fundamental en bases de datos grandes. Algunas estrategias incluyen el uso adecuado de índices, el análisis de planes de ejecución y la reescritura de consultas complejas para mejorar el rendimiento.
             </p>
-
+        
             <h3>Uso de Índices</h3>
-            <p>Los índices son estructuras que mejoran el rendimiento de las consultas de búsqueda. A continuación, se muestra cómo crear un índice en una tabla de productos:</p>
+            <p>Los índices permiten acelerar las búsquedas en bases de datos. A continuación, te mostramos cómo crear un índice en una tabla de productos:</p>
             <pre>
-CREATE INDEX idx_nombre_producto ON Productos (Nombre);
+        CREATE INDEX idx_producto_precio
+        ON Productos(Precio);
             </pre>
-
-            <h3>Análisis de Planes de Ejecución</h3>
-            <p>Los planes de ejecución permiten ver cómo SQL Server ejecuta una consulta. Esto te permite identificar posibles cuellos de botella y optimizar las consultas.</p>
+            <h3>Reescritura de Consultas</h3>
+            <p>Una consulta compleja puede ser reescrita para mejorar su rendimiento. Por ejemplo:</p>
+            <pre>
+        SELECT ProductoID, Nombre
+        FROM Productos
+        WHERE Precio > 100
+        AND CategoriaID = 2;
+            </pre>
+            <p>En lugar de usar una subconsulta, optimizamos esta consulta utilizando un índice de búsqueda.</p>
+            
+            <!-- Video centrado y descripción añadida -->
+            <h3>Video Explicativo Optimización de Consultas</h3>
+            <div class="video-container">
+                <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/bqkUgq8hPMo?si=QTqagM-BQ67kWTSh" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                </iframe>
+                <p class="video-description">
+                    Este video ofrece técnicas avanzadas para optimizar consultas SQL y mejorar el rendimiento.
+                </p>
+            </div>
         </article>
-
-        <article>
-            <h2>Ejercicios Avanzados y Proyectos de Práctica</h2>
-            <p>
-                La mejor manera de aprender SQL a nivel avanzado es poniendo en práctica lo aprendido a través de ejercicios desafiantes y proyectos de base de datos reales.
-            </p>
-            <ul>
-                <li><strong>Ejercicio 1:</strong> Crea un procedimiento almacenado que actualice los precios de todos los productos de una categoría específica.</li>
-                <li><strong>Ejercicio 2:</strong> Implementa un trigger que registre cambios en el inventario de productos cada vez que se realice una venta.</li>
-                <li><strong>Proyecto 1:</strong> Desarrolla un sistema de gestión de pedidos que utilice cursores para procesar cada pedido y actualizar las existencias de productos.</li>
-                <li><strong>Proyecto 2:</strong> Optimiza una consulta compleja que implique varias tablas de ventas, clientes y productos, y mejora su rendimiento utilizando índices y un análisis de planes de ejecución.</li>
-            </ul>
-            <p>Estos ejercicios y proyectos te ayudarán a consolidar tus habilidades avanzadas en SQL.</p>
-        </article>
-
     </section>
 
-    <!-- Pie de página -->
-    <footer>
-        <p>&copy; 2024 Guía de SQL - Proyecto realizado por Lucas Santamaria, Brayan Aponte, y Angel Fernández</p>
-    </footer>
 </body>
-
 </html>
