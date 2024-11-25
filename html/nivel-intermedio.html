@@ -1,286 +1,835 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>>Guía de SQL - Página Principal</title>
+    <title>Guía de SQL - Página Principal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
-    <!-- Encabezado Principal-->
-    <Header>
-        <h1>Nivel intermedio</h1>
-        <p>Haz avanzado por tu progreso y ya tienes las bases del lenguaje SQL, Xavier esta orgulloso de ti, sientete orgulloso ahora aplicaremos todo lo aprendido, mientras te introducimos a nuevas herramientas</p>
-        <p>Autores: Lucas Santamaria, Brayan Aponte, Angel Fernández</p>
-    </Header>
-    <!-- Navegacion-->
-    <nav>
-        <a href="Home.html">Inicio</a> |
-        <a href="nivel-basico.html">Nivel Básico</a> |
-        <a href="nivel-intermedio.html">Nivel Intermedio</a> |
-        <a href="nivel-avanzado.html">Nivel Avanzado</a>
+    <!-- Encabezado Principal -->
+    <header class="bg-primary text-white py-4">
+        <div class="container">
+            <h1 class="display-4">Nivel Intermedio</h1>
+            <p class="lead">Haz avanzado por tu progreso y ya tienes las bases del lenguaje SQL, Xavier está orgulloso de ti. Siéntete orgulloso, ahora aplicaremos todo lo aprendido mientras te introducimos a nuevas herramientas.</p>
+            <p>Autores: Lucas Santamaría, Brayan Aponte, Ángel Fernández</p>
+        </div>
+    </header>
+
+    <!-- Navegación con barra de navegación de Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">Guía SQL</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="Home.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nivel-basico.html">Nivel Básico</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nivel-intermedio.html">Nivel Intermedio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nivel-avanzado.html">Nivel Avanzado</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Registro</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <!-- Seccion principal -->
-    <section>
-        <article>
-            <h2>Nivel Intermedio</h2>
-            <p>
-                Siguiendo con los conceptos de SQL, esta vez avanzaremos a familiarizarnos mas con algunos ejemplos practicos
-                y tambien iremos aprendiendo sobre nuevas herramientas que te brindaran para futuro desarrollador SQL.
-                <ul>
-                    <li>
+    <!-- Sección Principal -->
+    <div class="container my-5">
+        <section id="introduccion" class="mb-5">
+            <h2>Bienvenido al Nivel Intermedio de SQL</h2>
+            <p>Ahora que tienes las bases del lenguaje SQL, es hora de aplicar lo aprendido y explorar conceptos más avanzados. En esta sección, abordaremos herramientas y técnicas que te permitirán escribir consultas más complejas y optimizar tu manejo de bases de datos.</p>
+            <ul>
+                <li><strong>Joins</strong>: Aprenderemos a combinar tablas para obtener información más completa.</li>
+                <li><strong>Subconsultas</strong>: Cómo utilizar consultas dentro de otras consultas para obtener resultados más específicos.</li>
+                <li><strong>Funciones agregadas</strong>: Como <code>COUNT()</code>, <code>SUM()</code>, <code>AVG()</code>, entre otras.</li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+</body>
+
+<body>
+    <div class="container mt-5">
+        <!-- Nivel Intermedio Section -->
+        <section>
+            <article class="mb-5">
+                <h2 class="text-center mb-4">Nivel Intermedio</h2>
+                <p>
+                    Siguiendo con los conceptos de SQL, esta vez avanzaremos a familiarizarnos más con algunos ejemplos prácticos
+                    y también iremos aprendiendo sobre nuevas herramientas que te serán útiles como futuro desarrollador SQL.
+                </p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
                         <strong>Uniones de Tablas:</strong> Aprenderás a combinar datos de múltiples tablas utilizando
-                        <code>JOIN</code>, incluyendo <code>INNER JOIN</code>, <code>LEFT JOIN</code> y
-                        <code>RIGHT JOIN</code>.
+                        <code>JOIN</code>, incluyendo <code>INNER JOIN</code>, <code>LEFT JOIN</code> y <code>RIGHT JOIN</code>.
                     </li>
-                    <li>
-                        <strong>Subconsultas:</strong> Uso de subconsultas para realizar consultas dentro de otras
-                        consultas, mejorando la complejidad de las mismas.
+                    <li class="list-group-item">
+                        <strong>Subconsultas:</strong> Uso de subconsultas para realizar consultas dentro de otras consultas,
+                        mejorando la complejidad de las mismas.
                     </li>
-                    <li>
-                        <strong>Funciones de Agregación Avanzadas:</strong> Aprender a usar <code>GROUP BY</code> y
-                        <code>HAVING</code> para agrupar resultados y filtrar grupos de datos.
+                    <li class="list-group-item">
+                        <strong>Funciones de Agregación Avanzadas:</strong> Aprender a usar <code>GROUP BY</code> y <code>HAVING</code>
+                        para agrupar resultados y filtrar grupos de datos.
                     </li>
-                    <li>
+                    <li class="list-group-item">
                         <strong>Manipulación de Datos:</strong> Más sobre <code>UPDATE</code> y <code>DELETE</code> con
                         condiciones y técnicas de manipulación de datos complejas.
                     </li>
-                    <li>
+                    <li class="list-group-item">
                         <strong>Transacciones:</strong> Introducción al concepto de transacciones y cómo utilizarlas para
                         asegurar la integridad de los datos mediante <code>COMMIT</code> y <code>ROLLBACK</code>.
                     </li>
                 </ul>
-            </p>
+            </article>
+        </section>
 
-        </article>
-        <article>
-            <h2>Unión de Tablas</h2>
-            <p>
-                Esta guía de SQL ha sido diseñada para ayudar a estudiantes y profesionales a comprender los conceptos clave del lenguaje SQL, aprender a manipular bases de datos y mejorar sus habilidades a través de ejemplos y prácticas.
-            </p>
-        </article>
-        
-        <article>
-            <h2>INNER JOIN</h2>
-            <p>
-                El <code>INNER JOIN</code> devuelve solo las filas que tienen coincidencias en ambas tablas. Es útil cuando solo necesitas los registros que están presentes en las dos tablas.
-            </p>
-        
-            <h3>Tabla Clientes</h3>
-            <p>En esta tabla, tenemos la información básica de los clientes, incluyendo un ID único de cliente y su nombre.</p>
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>ClienteID</th>
-                        <th>Nombre</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Juan</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Ana</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Carlos</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>María</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <h3>Tabla Pedidos</h3>
-            <p>En esta tabla, tenemos los pedidos realizados, cada uno con un ID de pedido, el ID del cliente que lo realizó, y el nombre del producto comprado.</p>
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>PedidoID</th>
-                        <th>ClienteID</th>
-                        <th>Producto</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>101</td>
-                        <td>1</td>
-                        <td>Televisor</td>
-                    </tr>
-                    <tr>
-                        <td>102</td>
-                        <td>2</td>
-                        <td>Laptop</td>
-                    </tr>
-                    <tr>
-                        <td>103</td>
-                        <td>1</td>
-                        <td>Lavadora</td>
-                    </tr>
-                    <tr>
-                        <td>104</td>
-                        <td>3</td>
-                        <td>Smartphone</td>
-                    </tr>
-                </tbody>
-            </table>
-        
-            <h3>Resultado de INNER JOIN</h3>
-            <p>Al realizar un <code>INNER JOIN</code> entre las tablas Clientes y Pedidos utilizando el campo <code>ClienteID</code>, obtenemos solo los registros donde existe una coincidencia en ambas tablas. Esto nos permite ver qué productos compró cada cliente que tiene un pedido registrado.</p>
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Producto</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Juan</td>
-                        <td>Televisor</td>
-                    </tr>
-                    <tr>
-                        <td>Ana</td>
-                        <td>Laptop</td>
-                    </tr>
-                    <tr>
-                        <td>Juan</td>
-                        <td>Lavadora</td>
-                    </tr>
-                    <tr>
-                        <td>Carlos</td>
-                        <td>Smartphone</td>
-                    </tr>
-                </tbody>
-            </table>
-        </article>
-
-        <article>
-            <h2> Subconsultas</h2>
-            <p>
-                En SQL, una subconsulta es una consulta anidada dentro de otra consulta. Es una herramienta poderosa que
-                permite utilizar el resultado de una consulta como entrada para otra. Las subconsultas se colocan normalmente 
-                entre paréntesis y pueden usarse en varias partes de una consulta principal, como en la cláusula SELECT, FROM, WHERE, HAVING, o JOIN
-            </p>
-
-            <h3>Select</h3>
-            <p>"SELEC"T permiten calcular un valor que se utiliza en cada fila del resultado.
-                Este valor puede venir de otra tabla o de un cálculo que no forma parte de las columnas principales de la consulta.
-            </p>
-
-            <h3>From</h3>
-            <p>
-                FROM se conocen como subconsultas de tabla o consultas derivadas. Estas subconsultas actúan como una "tabla temporal" 
-                que puedes usar en la consulta principal. Esto permite realizar operaciones complejas de filtrado, agrupamiento o 
-                cálculo que serían difíciles de hacer directamente en la consulta principal
-            </p>
-
-            <h3>Where</h3>
-            <p>
-                Las subconsultas en WHERE se utilizan para filtrar resultados en función de condiciones que se derivan de otra consulta. 
-                Esto permite realizar comparaciones más complejas o validar la existencia de registros relacionados en otras tablas.
-            </p>
-
-            <h3>Having</h3>
-            <p>
-                La cláusula HAVING se utiliza en SQL para filtrar los resultados de una consulta que involucra funciones de agregación 
-                (como SUM, AVG, COUNT, etc.). Al igual que en WHERE, puedes usar subconsultas en HAVING para aplicar condiciones basadas 
-                en resultados de otras consultas.
-            </p>
-
-            <h3>JOIN</h3>
-            <P>
-                Las subconsultas en JOIN se utilizan para unir resultados de una tabla con los resultados de otra consulta, que puede 
-                ser una subconsulta. Esto permite crear consultas complejas al combinar datos de diferentes tablas o conjuntos de resultados.
-            </P>
-
-        </article>
-
-        <article>
-            <h2>Funciones de Agregación Avanzadas</h2>
-            <p>
-                Las funciones de agregación avanzadas en SQL se utilizan para realizar cálculos sobre un conjunto de datos y devolver un único valor. 
-                Estas funciones son especialmente útiles para resumir y analizar grandes volúmenes de información. 
-            </p>
-            <ul>
-                <li> Funciones Basicas: </li>
-                <p>COUNT(): Esta función cuenta el número de filas que cumplen con una condición específica. Puede contar todas las filas o solo aquellas que tienen un valor no nulo en una columna especificada.</p>
-                <p>SUM(): Suma los valores de una columna específica para todas las filas que cumplen con una condición.</p>
-                <p>AVG(): Calcula el promedio de los valores en una columna específica. Solo considera los valores no nulos.</p>
-                <p>MAX(): Devuelve el valor máximo de una columna específica.</p>
-                <p>MIN(): Devuelve el valor mínimo de una columna específica.</p>
-                <li> Funciones Avanzadas: </li>
-                <p>GROUP BY: Utiliza junto con las funciones de agregación para agrupar resultados en función de una o más columnas. Cada grupo devuelve un valor de la función de agregación.</p>
-                <p>HAVING: Similar a WHERE, pero se usa para filtrar los resultados de un grupo después de aplicar las funciones de agregación.</p>
-                <p>ROLLUP: Extensión de GROUP BY que genera subtotales en varias jerarquías de agrupación.</p>
-                <p>CUBE: Similar a ROLLUP, pero genera subtotales para todas las combinaciones de las columnas especificadas.</p>
-            </ul>
-        </article>
-        
-        <article>
-            <h2>
-                Manipulacion de datos
-            </h2>
-            <p>
-                La manipulación de datos en SQL se refiere a la modificación y gestión de los datos dentro de una base de datos. 
-                Esto incluye las operaciones básicas de inserción, actualización, eliminación y consulta de datos. 
-            </p>
-            <h3> Insert </h3>
-            <p>Se utiliza para agregar nuevos registros a una tabla.</p>
-            <h3> Delete </h3>
-            <p>Se utiliza para eliminar Datos </p>
-            <h3> Update </h3>
-            <p> Se utiliza para actualizar datos de la tabala </p>
-        </article>
-
-        <article>
-            <h2>Transacciones</h2>
-            <p>
-                Las transacciones SQL son un conjunto de operaciones que se ejecutan como una única unidad de trabajo. Esto significa 
-                que todas las operaciones dentro de una transacción deben completarse exitosamente para que se realicen los cambios en 
-                la base de datos. Si alguna de las operaciones falla, se pueden revertir todas las operaciones realizadas hasta ese momento, 
-                asegurando la integridad de los datos.
-            </p>
-            <h3>Propiedades de la transacciones</h3>
-            <ul>
-                <li>Atomicidad</li>
-                <li>Consistencia</li>
-                <li>Aislamiento</li>
-                <li>Durabilidad</li>
-            </ul>
-            <h3>Comando basicosde transacciones</h3>
-            <ul>
-                <li>Begin Transaction</li>
+        <!-- UNION Section -->
+        <section>
+            <article class="mb-5">
+                <h2 class="text-center mb-4">Unión de Tablas</h2>
                 <p>
-                    Utilizar BEGIN TRANSACTION es esencial antes de realizar múltiples operaciones que deben considerarse como una unidad. 
-                    Esto asegura que si ocurre un error en alguna de las operaciones, puedas revertir todas las operaciones realizadas desde que se inició la transacción.
+                    Esta guía de SQL ha sido diseñada para ayudar a estudiantes y profesionales a comprender los conceptos clave
+                    del lenguaje SQL, aprender a manipular bases de datos y mejorar sus habilidades a través de ejemplos y prácticas.
                 </p>
-                <li>Commit</li>
-                <p>
-                    Este comando finaliza la transacción y aplica todos los cambios realizados durante la transacción en la base de datos. Una vez que se ejecuta un COMMIT, 
-                    los cambios son permanentes y no se pueden deshacer.
-                </p>
-                <li>RollBack</li>
-                <p>
-                    Este comando deshace todos los cambios realizados en la transacción desde el BEGIN TRANSACTION. Se utiliza cuando hay un error en alguna de las operaciones 
-                    y deseas revertir todos los cambios realizados hasta ese punto.
-                </p>
-            </ul>
+            </article>
+        </section>
 
-        </article>
-        
+        <!-- INNER JOIN Section -->
+        <section>
+            <article>
+                <h2 class="text-center mb-4">INNER JOIN</h2>
+                <p>
+                    El <code>INNER JOIN</code> devuelve solo las filas que tienen coincidencias en ambas tablas. Es útil cuando
+                    solo necesitas los registros que están presentes en las dos tablas.
+                </p>
 
+                <div class="mb-4">
+                    <h3>Tabla Clientes</h3>
+                    <p>En esta tabla, tenemos la información básica de los clientes, incluyendo un ID único de cliente y su nombre.</p>
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ClienteID</th>
+                                <th>Nombre</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Juan</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Ana</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Carlos</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>María</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mb-4">
+                    <h3>Tabla Pedidos</h3>
+                    <p>En esta tabla, tenemos los pedidos realizados, cada uno con un ID de pedido, el ID del cliente que lo realizó, y el nombre del producto comprado.</p>
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>PedidoID</th>
+                                <th>ClienteID</th>
+                                <th>Producto</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>101</td>
+                                <td>1</td>
+                                <td>Televisor</td>
+                            </tr>
+                            <tr>
+                                <td>102</td>
+                                <td>2</td>
+                                <td>Laptop</td>
+                            </tr>
+                            <tr>
+                                <td>103</td>
+                                <td>1</td>
+                                <td>Lavadora</td>
+                            </tr>
+                            <tr>
+                                <td>104</td>
+                                <td>3</td>
+                                <td>Smartphone</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div>
+                    <h3>Resultado de INNER JOIN</h3>
+                    <p>
+                        Al realizar un <code>INNER JOIN</code> entre las tablas Clientes y Pedidos utilizando el campo <code>ClienteID</code>,
+                        obtenemos solo los registros donde existe una coincidencia en ambas tablas. Esto nos permite ver qué productos
+                        compró cada cliente que tiene un pedido registrado.
+                    </p>
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Producto</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Juan</td>
+                                <td>Televisor</td>
+                            </tr>
+                            <tr>
+                                <td>Ana</td>
+                                <td>Laptop</td>
+                            </tr>
+                            <tr>
+                                <td>Juan</td>
+                                <td>Lavadora</td>
+                            </tr>
+                            <tr>
+                                <td>Carlos</td>
+                                <td>Smartphone</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+        </section>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<article>
+    <section class="container py-5">
+        <h2 class="text-center mb-4"><i class="fas fa-database text-primary"></i> Subconsultas en SQL</h2>
+        <p class="lead text-center mb-5">
+            Las subconsultas en SQL son una herramienta poderosa que permite anidar consultas dentro de otras para realizar
+            operaciones avanzadas. Aquí exploraremos cómo utilizarlas en diferentes contextos.
+        </p>
+
+        <div class="row g-4">
+            <!-- SELECT -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary"><i class="fas fa-list-alt"></i> SELECT</h5>
+                        <p class="card-text">
+                            Las subconsultas en SELECT permiten calcular valores para cada fila del resultado, utilizando datos
+                            de otras tablas o cálculos avanzados.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FROM -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow">
+                    <div class="card-body">
+                        <h5 class="card-title text-success"><i class="fas fa-table"></i> FROM</h5>
+                        <p class="card-text">
+                            En FROM, las subconsultas actúan como "tablas temporales" que permiten realizar operaciones complejas
+                            de filtrado, agrupamiento o cálculo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WHERE -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow">
+                    <div class="card-body">
+                        <h5 class="card-title text-danger"><i class="fas fa-filter"></i> WHERE</h5>
+                        <p class="card-text">
+                            Las subconsultas en WHERE ayudan a filtrar resultados basándose en condiciones derivadas de
+                            otras consultas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HAVING -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow">
+                    <div class="card-body">
+                        <h5 class="card-title text-warning"><i class="fas fa-chart-bar"></i> HAVING</h5>
+                        <p class="card-text">
+                            La cláusula HAVING usa subconsultas para aplicar condiciones a resultados de funciones de
+                            agregación como SUM, AVG, o COUNT.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JOIN -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow">
+                    <div class="card-body">
+                        <h5 class="card-title text-info"><i class="fas fa-link"></i> JOIN</h5>
+                        <p class="card-text">
+                            Las subconsultas en JOIN permiten unir datos de una tabla con los resultados de otra consulta
+                            para crear combinaciones complejas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    <!-- Pie de página -->
-    <footer>
-        <p>&copy; 2024 Guía de SQL - Proyecto realizado por Lucas Santamaria, Brayan Aponte, y Angel Fernández</p>
-    </footer>
-</body>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</article>
+<article>
+    <h2 class="text-center my-4">Funciones de Agregación Avanzadas</h2>
+    <p class="text-justify">
+        Las funciones de agregación avanzadas en SQL se utilizan para realizar cálculos sobre un conjunto de datos y devolver un único valor.
+        Estas funciones son especialmente útiles para resumir y analizar grandes volúmenes de información.
+    </p>
+    <h3>Funciones Básicas</h3>
+    <div class="accordion" id="funcionesBasicas">
+        <!-- COUNT -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingCount">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCount" aria-expanded="true" aria-controls="collapseCount">
+                    <strong>COUNT()</strong>
+                </button>
+            </h2>
+            <div id="collapseCount" class="accordion-collapse collapse show" aria-labelledby="headingCount" data-bs-parent="#funcionesBasicas">
+                <div class="accordion-body">
+                    <p>Cuenta el número de filas que cumplen con una condición específica.</p>
+                    <pre>
+-- Contar el número total de empleados en la tabla "empleados":
+SELECT COUNT(*) AS TotalEmpleados
+FROM empleados;
+
+-- Contar solo empleados con un salario mayor a 5000:
+SELECT COUNT(*) AS EmpleadosConSalarioAlto
+FROM empleados
+WHERE salario > 5000;
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- SUM -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSum">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSum" aria-expanded="false" aria-controls="collapseSum">
+                    <strong>SUM()</strong>
+                </button>
+            </h2>
+            <div id="collapseSum" class="accordion-collapse collapse" aria-labelledby="headingSum" data-bs-parent="#funcionesBasicas">
+                <div class="accordion-body">
+                    <p>Suma los valores de una columna específica para todas las filas que cumplen con una condición.</p>
+                    <pre>
+-- Sumar el total de ventas realizadas:
+SELECT SUM(monto_venta) AS TotalVentas
+FROM ventas;
+
+-- Sumar las ventas realizadas en un mes específico:
+SELECT SUM(monto_venta) AS VentasEnero
+FROM ventas
+WHERE mes = 'Enero';
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- AVG -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingAvg">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAvg" aria-expanded="false" aria-controls="collapseAvg">
+                    <strong>AVG()</strong>
+                </button>
+            </h2>
+            <div id="collapseAvg" class="accordion-collapse collapse" aria-labelledby="headingAvg" data-bs-parent="#funcionesBasicas">
+                <div class="accordion-body">
+                    <p>Calcula el promedio de los valores en una columna específica. Solo considera los valores no nulos.</p>
+                    <pre>
+-- Calcular el salario promedio de los empleados:
+SELECT AVG(salario) AS SalarioPromedio
+FROM empleados;
+
+-- Calcular el promedio de calificaciones mayores a 60:
+SELECT AVG(calificacion) AS PromedioAprobados
+FROM estudiantes
+WHERE calificacion >= 60;
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- MAX -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingMax">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMax" aria-expanded="false" aria-controls="collapseMax">
+                    <strong>MAX()</strong>
+                </button>
+            </h2>
+            <div id="collapseMax" class="accordion-collapse collapse" aria-labelledby="headingMax" data-bs-parent="#funcionesBasicas">
+                <div class="accordion-body">
+                    <p>Devuelve el valor máximo de una columna específica.</p>
+                    <pre>
+-- Encontrar el salario más alto:
+SELECT MAX(salario) AS SalarioMaximo
+FROM empleados;
+
+-- Encontrar la venta más alta realizada en el año:
+SELECT MAX(monto_venta) AS VentaMaxima
+FROM ventas
+WHERE anio = 2024;
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- MIN -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingMin">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMin" aria-expanded="false" aria-controls="collapseMin">
+                    <strong>MIN()</strong>
+                </button>
+            </h2>
+            <div id="collapseMin" class="accordion-collapse collapse" aria-labelledby="headingMin" data-bs-parent="#funcionesBasicas">
+                <div class="accordion-body">
+                    <p>Devuelve el valor mínimo de una columna específica.</p>
+                    <pre>
+-- Encontrar el salario más bajo:
+SELECT MIN(salario) AS SalarioMinimo
+FROM empleados;
+
+-- Encontrar la calificación más baja en un examen:
+SELECT MIN(calificacion) AS CalificacionMinima
+FROM estudiantes;
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+<article>
+    <h2>Funciones Avanzadas</h2>
+    <p>
+      Las funciones avanzadas en SQL son esenciales para realizar cálculos y análisis más complejos. Estas herramientas permiten agrupar, filtrar y resumir datos de manera eficiente.
+    </p>
+    <div class="accordion" id="advancedFunctionsAccordion">
+      
+      <!-- GROUP BY -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingGroupBy">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGroupBy" aria-expanded="true" aria-controls="collapseGroupBy">
+            <strong>GROUP BY</strong>
+          </button>
+        </h2>
+        <div id="collapseGroupBy" class="accordion-collapse collapse show" aria-labelledby="headingGroupBy" data-bs-parent="#advancedFunctionsAccordion">
+          <div class="accordion-body">
+            Utiliza junto con las funciones de agregación para agrupar resultados en función de una o más columnas. Cada grupo devuelve un valor de la función de agregación.
+            <pre>
+  -- Calcular el salario promedio por departamento:
+  SELECT departamento, AVG(salario) AS SalarioPromedio
+  FROM empleados
+  GROUP BY departamento;
+  
+  -- Contar el número de estudiantes por grado:
+  SELECT grado, COUNT(*) AS NumeroEstudiantes
+  FROM estudiantes
+  GROUP BY grado;
+            </pre>
+          </div>
+        </div>
+      </div>
+  
+      <!-- HAVING -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingHaving">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHaving" aria-expanded="false" aria-controls="collapseHaving">
+            <strong>HAVING</strong>
+          </button>
+        </h2>
+        <div id="collapseHaving" class="accordion-collapse collapse" aria-labelledby="headingHaving" data-bs-parent="#advancedFunctionsAccordion">
+          <div class="accordion-body">
+            Similar a WHERE, pero se usa para filtrar los resultados de un grupo después de aplicar las funciones de agregación.
+            <pre>
+  -- Mostrar departamentos con salario promedio mayor a 5000:
+  SELECT departamento, AVG(salario) AS SalarioPromedio
+  FROM empleados
+  GROUP BY departamento
+  HAVING AVG(salario) > 5000;
+  
+  -- Mostrar grados con más de 10 estudiantes:
+  SELECT grado, COUNT(*) AS NumeroEstudiantes
+  FROM estudiantes
+  GROUP BY grado
+  HAVING COUNT(*) > 10;
+            </pre>
+          </div>
+        </div>
+      </div>
+  
+      <!-- ROLLUP -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingRollup">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRollup" aria-expanded="false" aria-controls="collapseRollup">
+            <strong>ROLLUP</strong>
+          </button>
+        </h2>
+        <div id="collapseRollup" class="accordion-collapse collapse" aria-labelledby="headingRollup" data-bs-parent="#advancedFunctionsAccordion">
+          <div class="accordion-body">
+            Extensión de GROUP BY que genera subtotales en varias jerarquías de agrupación.
+            <pre>
+  -- Generar subtotales por departamento y total general:
+  SELECT departamento, SUM(salario) AS TotalSalario
+  FROM empleados
+  GROUP BY ROLLUP(departamento);
+            </pre>
+          </div>
+        </div>
+      </div>
+  
+      <!-- CUBE -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingCube">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCube" aria-expanded="false" aria-controls="collapseCube">
+            <strong>CUBE</strong>
+          </button>
+        </h2>
+        <div id="collapseCube" class="accordion-collapse collapse" aria-labelledby="headingCube" data-bs-parent="#advancedFunctionsAccordion">
+          <div class="accordion-body">
+            Similar a ROLLUP, pero genera subtotales para todas las combinaciones de las columnas especificadas.
+            <pre>
+  -- Generar subtotales y totales cruzados por departamento y cargo:
+  SELECT departamento, cargo, SUM(salario) AS TotalSalario
+  FROM empleados
+  GROUP BY CUBE(departamento, cargo);
+            </pre>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </article>
+  <body>
+    <div class="container my-5">
+        <h2 class="text-center">Manipulación de Datos</h2>
+        <p class="lead">
+            La manipulación de datos en SQL se refiere a la modificación y gestión de los datos dentro de una base de datos.
+            Esto incluye las operaciones básicas de inserción, actualización, eliminación y consulta de datos.
+        </p>
+
+        <ul class="nav nav-tabs" id="dataManipulationTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="insert-tab" data-bs-toggle="tab" data-bs-target="#insert" type="button" role="tab" aria-controls="insert" aria-selected="true">Operación INSERT</button>
+            </li>
+            <!-- Puedes agregar más pestañas aquí para otras operaciones -->
+        </ul>
+
+        <div class="tab-content" id="dataManipulationTabsContent">
+            <!-- INSERT Operation Tab -->
+            <div class="tab-pane fade show active" id="insert" role="tabpanel" aria-labelledby="insert-tab">
+                <div class="my-4">
+                    <h4>Tabla Original: Clientes</h4>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>ClienteID</th>
+                                    <th>Nombre</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Juan</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Ana</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Carlos</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>María</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4>Código SQL:</h4>
+                    <pre><code class="language-sql">INSERT INTO Clientes (ClienteID, Nombre)
+VALUES (5, 'Luis');</code></pre>
+
+                    <h4>Tabla Resultante:</h4>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>ClienteID</th>
+                                    <th>Nombre</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Juan</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Ana</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Carlos</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>María</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Luis</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="container my-5">
+        <h3 class="text-primary">3. Operación UPDATE</h3>
+        <p>Se utiliza para actualizar los datos en una tabla.</p>
+
+        <!-- Tabla Original -->
+        <h4>Tabla Original: Clientes</h4>
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>ClienteID</th>
+                    <th>Nombre</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Juan</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Ana</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Carlos</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>María</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Luis</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Código SQL -->
+        <h4>Código SQL:</h4>
+        <pre class="bg-light p-3 border rounded"><code>
+UPDATE Clientes
+SET Nombre = 'Luis Miguel'
+WHERE ClienteID = 5;
+        </code></pre>
+
+        <!-- Tabla Resultante -->
+        <h4>Tabla Resultante:</h4>
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>ClienteID</th>
+                    <th>Nombre</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Juan</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Ana</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Carlos</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>María</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Luis Miguel</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <div class="container mt-5">
+          <div class="card shadow">
+            <div class="card-header text-center bg-info text-white">
+              <h3>2. Operación DELETE</h3>
+            </div>
+            <div class="card-body">
+              <p class="text-center">Se utiliza para eliminar datos de una tabla.</p>
+      
+              <h4 class="text-center">Tabla Original: Pedidos</h4>
+              <div class="table-responsive">
+                <table class="table table-bordered text-center">
+                  <thead class="table-dark">
+                    <tr>
+                      <th scope="col">PedidoID</th>
+                      <th scope="col">ClienteID</th>
+                      <th scope="col">Producto</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>101</td>
+                      <td>1</td>
+                      <td>Televisor</td>
+                    </tr>
+                    <tr>
+                      <td>102</td>
+                      <td>2</td>
+                      <td>Laptop</td>
+                    </tr>
+                    <tr>
+                      <td>103</td>
+                      <td>1</td>
+                      <td>Lavadora</td>
+                    </tr>
+                    <tr>
+                      <td>104</td>
+                      <td>3</td>
+                      <td>Smartphone</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+      
+              <h4 class="text-center">Código SQL:</h4>
+              <pre class="bg-light p-3 border rounded"><code>DELETE FROM Pedidos
+      WHERE PedidoID = 103;</code></pre>
+      
+              <h4 class="text-center">Tabla Resultante:</h4>
+              <div class="table-responsive">
+                <table class="table table-bordered text-center">
+                  <thead class="table-dark">
+                    <tr>
+                      <th scope="col">PedidoID</th>
+                      <th scope="col">ClienteID</th>
+                      <th scope="col">Producto</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>101</td>
+                      <td>1</td>
+                      <td>Televisor</td>
+                    </tr>
+                    <tr>
+                      <td>102</td>
+                      <td>2</td>
+                      <td>Laptop</td>
+                    </tr>
+                    <tr>
+                      <td>104</td>
+                      <td>3</td>
+                      <td>Smartphone</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <body class="bg-light">
+
+            <div class="container mt-5">
+              <div class="card shadow">
+                <div class="card-header text-center bg-primary text-white">
+                  <h2>Transacciones</h2>
+                </div>
+                <div class="card-body">
+                  <p>
+                    Las transacciones SQL son un conjunto de operaciones que se ejecutan como una única unidad de trabajo. Esto significa 
+                    que todas las operaciones dentro de una transacción deben completarse exitosamente para que se realicen los cambios en 
+                    la base de datos. Si alguna de las operaciones falla, se pueden revertir todas las operaciones realizadas hasta ese momento, 
+                    asegurando la integridad de los datos.
+                  </p>
+          
+                  <h3 class="mt-4 text-center text-info">Comandos básicos de transacciones</h3>
+                  <div class="row mt-3">
+                    <div class="col-md-4">
+                      <div class="card border-info mb-3">
+                        <div class="card-header bg-info text-white">Begin Transaction</div>
+                        <div class="card-body">
+                          <p>
+                            Utilizar <code>BEGIN TRANSACTION</code> es esencial antes de realizar múltiples operaciones que deben considerarse 
+                            como una unidad. Esto asegura que si ocurre un error en alguna de las operaciones, puedas revertir todas las 
+                            operaciones realizadas desde que se inició la transacción.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="card border-success mb-3">
+                        <div class="card-header bg-success text-white">Commit</div>
+                        <div class="card-body">
+                          <p>
+                            Este comando finaliza la transacción y aplica todos los cambios realizados durante la transacción en la base de 
+                            datos. Una vez que se ejecuta un <code>COMMIT</code>, los cambios son permanentes y no se pueden deshacer.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="card border-danger mb-3">
+                        <div class="card-header bg-danger text-white">RollBack</div>
+                        <div class="card-body">
+                          <p>
+                            Este comando deshace todos los cambios realizados en la transacción desde el <code>BEGIN TRANSACTION</code>. Se 
+                            utiliza cuando hay un error en alguna de las operaciones y deseas revertir todos los cambios realizados hasta ese punto.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+          
+                </div>
+              </div>
+            </div>
+          
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+          </body>
+          </html>
 </html>
