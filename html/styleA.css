@@ -1,0 +1,184 @@
+/* Estilos generales que aplican a todos los HTML */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f4f6;
+    color: #333;
+}
+
+/* Estilos para el encabezado */
+header {
+    background: linear-gradient(90deg, #4CAF50, #81C784);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 4px solid #388E3C;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+}
+
+header p {
+    margin: 0.5rem 0 0;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Navegación */
+nav {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #81C784;
+}
+
+/* Estilos específicos para nivel avanzado */
+#nivel-avanzado header {
+    background: linear-gradient(90deg, #00695C, #004D40);
+}
+
+#nivel-avanzado section {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+/* Artículos */
+#nivel-avanzado article {
+    background: white;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#nivel-avanzado article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+#nivel-avanzado h2 {
+    font-size: 1.8rem;
+    color: #00695C;
+    border-bottom: 2px solid #81C784;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Código en pre */
+pre {
+    background: #f4f4f4;
+    padding: 1rem;
+    border-left: 5px solid #4CAF50;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+    color: #333;
+    border-radius: 5px;
+}
+
+/* Listas */
+ul {
+    list-style: square;
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+ul li {
+    margin: 0.5rem 0;
+}
+
+/* Pie de página */
+footer {
+    background-color: #004D40;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Botones y enlaces */
+button, a {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+button:hover, a:hover {
+    transform: scale(1.05);
+}
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        margin: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: #4CAF50;
+        border-radius: 5px;
+    }
+
+    #nivel-avanzado section {
+        padding: 0.5rem;
+    }
+
+    #nivel-avanzado article {
+        padding: 1.5rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+   
+
+}
+ /* Centrar y estilizar el contenedor del video */
+ .video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+/* Estilo del iframe */
+iframe {
+    
+    border: 3px solid #00796B; /* Color distintivo */
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo de la descripción debajo del video */
+.video-description {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #37474F; /* Gris oscuro para contraste */
+    max-width: 80%;
+}
